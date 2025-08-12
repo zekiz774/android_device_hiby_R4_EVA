@@ -1,0 +1,9 @@
+/system       display=system
+/system_ext   display=system_ext
+/product      display=product
+/vendor       display=vendor
+/odm          display=odm
+
+/data         display=data;backup=1;wipeingui
+/metadata     display=metadata
+/persist      display=persist

@@ -1,0 +1,14 @@
+# <dev>  <mnt_point> <type>  <mnt_flags options> <fs_mgr_flags>
+
+# --- logical (super) partitions ---
+system   /system         ext4    ro,barrier=1        wait,slotselect,logical
+system   /system_ext     ext4    ro,barrier=1        wait,slotselect,logical
+vendor   /vendor         ext4    ro,barrier=1        wait,slotselect,logical
+product  /product        ext4    ro,barrier=1        wait,slotselect,logical
+odm      /odm            ext4    ro,barrier=1        wait,slotselect,logical
+
+# --- physical partitions ---
+/dev/block/bootdevice/by-name/metadata        /metadata      ext4       nosuid,nodev         wait,check
+/dev/block/bootdevice/by-name/persist         /persist       ext4       nosuid,nodev         wait,check,formattable
+
+/dev/block/bootdevice/by-name/userdata        /data          f2fs       nosuid,nodev,discard latemount,quota,reservedsize=128M,formattable,checkpoint=fs
